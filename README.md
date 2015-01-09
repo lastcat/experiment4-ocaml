@@ -6,3 +6,15 @@ zikken4-ocaml
 Ex 3.2
 
 Ex 3.3
+
+##適当なテストコメント
+
+Ex3.8
+
+たとえば、let plusx = fun x -> fun y -> x + y;;として、
+
+let hoge = plusx 3;;
+
+hoge 7;;
+
+とかすると、ちゃんと10になる。

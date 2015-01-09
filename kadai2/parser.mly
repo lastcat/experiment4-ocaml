@@ -48,7 +48,7 @@ ANExpr :
 OExpr :
     OExpr OR AppExpr { BinOp (OR, $1, $3) }
   | AppExpr { $1 }
-
+(*関数適用(apply)*)
 AppExpr :
     AppExpr AExpr { AppExp ($1, $2) }
   | AExpr { $1 }
