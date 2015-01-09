@@ -22,6 +22,7 @@ Expr :
     IfExpr { $1 }
   | LetExpr { $1} 
   | LTExpr { $1 }
+  | FunExpr { $1 }
 
 LetExpr :
   LET ID EQ Expr IN Expr { LetExp ($2, $4, $6) }
@@ -61,3 +62,6 @@ AExpr :
 
 IfExpr :
     IF Expr THEN Expr ELSE Expr { IfExp ($2, $4, $6) }
+
+FunExpr:
+    FUN ID RARROW Expr { FunExp ($2,$4)}

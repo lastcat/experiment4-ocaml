@@ -3,14 +3,6 @@ open Eval
 open Printf
 open Str
 
-(*let cat filename =
-  let fin = open_in filename in
-    let rec cat_sub () =
-	    output_char stdout (input_char fin);
-		    cat_sub ();
-			  in
-			      try cat_sub () with End_of_file -> close_in fin;
-*)
 let rec read_eval_print env =
 try 
   let filename = Sys.argv.(1) in 
@@ -41,7 +33,7 @@ try
 with 
   Eval.Error "Variable not bound"-> print_string "eval error\n";read_eval_print env
  |Parsing.Parse_error -> print_string "parse error\n";read_eval_print env
- |_ -> print_string "something is wrong\n";read_eval_print env
+ (*|_ -> print_string "something is wrong\n";read_eval_print env*)
 
 let initial_env = 
   Environment.extend "i" (IntV 1)
