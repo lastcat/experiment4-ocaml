@@ -11,7 +11,7 @@ let rec add m n =
 let rec mul m n = 
 match m with Zero -> Zero
            | OneMoreThan Zero -> n
-           | OneMoreThan m' -> mul m' (add n n);;
+           | OneMoreThan m' -> add n (mul m' n);;
 (* mul (OneMoreThan (OneMoreThan Zero)) (OneMoreThan (OneMoreThan (OneMoreThan Zero)))*)
 (*OUTPUT: OneMoreThan (OneMoreThan (OneMoreThan (OneMoreThan (OneMoreThan (OneMoreThan Zero)))))*)
 let rec monus m n = 
