@@ -6,9 +6,15 @@ eval.cmo : syntax.cmx environment.cmi
 eval.cmx : syntax.cmx environment.cmx
 lexer.cmo : parser.cmi
 lexer.cmx : parser.cmx
-main.cmo : syntax.cmx parser.cmi lexer.cmx eval.cmx environment.cmi
-main.cmx : syntax.cmx parser.cmx lexer.cmx eval.cmx environment.cmx
+main.cmo : typing.cmx syntax.cmx parser.cmi lexer.cmx eval.cmx \
+    environment.cmi
+main.cmx : typing.cmx syntax.cmx parser.cmx lexer.cmx eval.cmx \
+    environment.cmx
 parser.cmo : syntax.cmx parser.cmi
 parser.cmx : syntax.cmx parser.cmi
 syntax.cmo :
 syntax.cmx :
+test.cmo :
+test.cmx :
+typing.cmo :
+typing.cmx :
