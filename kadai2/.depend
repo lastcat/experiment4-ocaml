@@ -1,4 +1,5 @@
 environment.cmi : syntax.cmx
+mySet.cmi :
 parser.cmi : syntax.cmx
 environment.cmo : syntax.cmx environment.cmi
 environment.cmx : syntax.cmx environment.cmi
@@ -10,11 +11,13 @@ main.cmo : typing.cmx syntax.cmx parser.cmi lexer.cmx eval.cmx \
     environment.cmi
 main.cmx : typing.cmx syntax.cmx parser.cmx lexer.cmx eval.cmx \
     environment.cmx
+mySet.cmo : mySet.cmi
+mySet.cmx : mySet.cmi
 parser.cmo : syntax.cmx parser.cmi
 parser.cmx : syntax.cmx parser.cmi
-syntax.cmo :
-syntax.cmx :
+syntax.cmo : mySet.cmi
+syntax.cmx : mySet.cmx
 test.cmo :
 test.cmx :
-typing.cmo :
-typing.cmx :
+typing.cmo : syntax.cmx environment.cmi
+typing.cmx : syntax.cmx environment.cmx

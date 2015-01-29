@@ -12,9 +12,9 @@ let err s = raise (Error s)
 
 (* pretty printing *)
 let rec string_of_exval = function
-    IntV i -> string_of_int i
-  | BoolV b -> string_of_bool b
-  | ProcV (id,exp,env) -> id
+    IntV i -> (string_of_int i)
+  | BoolV b -> (string_of_bool b)
+  | ProcV (id,exp,env) -> id 
 
 let pp_val v = print_string (string_of_exval v)
 
@@ -65,13 +65,12 @@ let rec eval_exp env = function
 		         let newenv =
 				           Environment.extend id (ProcV (para, exp1, dummyenv)) env in dummyenv := newenv;
 						             eval_exp newenv exp2
-(*大体上の奴と同じようにする！*)
 let eval_decl env = function
     Exp e -> let v = eval_exp env e in ("-", env, v)
 	| Decl (id, e) ->
 	  let v = eval_exp env e in (id, Environment.extend id v env, v)
 	|RecDecl (id,para,exp) -> 
 	  let dummyenv = ref Environment.empty in
-        let v = ProcV (para, exp, dummyenv) in
-          let newenv = Environment.extend id v env in dummyenv := newenv;
-		  (id, newenv, v)
+	    let v = ProcV(para,exp,dummyenv) in
+	    let newenv = Environment.extend id v env in dummyenv := newenv;
+		(id,newenv,v)
